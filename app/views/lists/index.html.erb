@@ -18,10 +18,10 @@
 
   <div class = "d-flex flex-row bd-highlight">
         <% @lists.each do |list| %>
-          <div class = "card  me-3">
-            <%= image_tag "card.jpg", alt: "movie card", width: 200, height: 100, class:"" %>
+          <div class = "card me-3">
+            <%= image_tag "card.jpg", alt: "movie card", width: 300, height: 200, class:"" %>
             <div class="card-img-overlay">
-              <%= link_to list.name, list_path(list) %>
+              <%= link_to list.name, list_path(list), id: "link" %>
             </div>
           </div>
         <% end %>
