@@ -1,0 +1,29 @@
+<nav class= "navbar navbar-expand-lg navbar-light bg-light justify-content-between">
+  <%= image_tag "popcorn.png", alt: "popcorn photo", width: 50, height: 50 %>
+  <div class = "nav justify-content-end">
+    <%= link_to 'My lists', lists_path%>
+    <%= link_to "New list", new_list_path%>
+  </div>
+</nav>
+
+<div class = "container-fluid">
+  <h2>Save any kind of movies</h2>
+</div>
+
+<div class="container">
+  <div class = "d-flex justify-content-between"
+    <h3>My Lists</h3>
+    <%= link_to "Create a movie list", new_list_path, class: "btn btn-success" %>
+  </div>
+
+  <div class = "d-flex flex-row bd-highlight">
+        <% @lists.each do |list| %>
+          <div class = "card  me-3">
+            <%= image_tag "card.jpg", alt: "movie card", width: 200, height: 100, class:"" %>
+            <div class="card-img-overlay">
+              <%= link_to list.name, list_path(list) %>
+            </div>
+          </div>
+        <% end %>
+  </div>
+</div>
