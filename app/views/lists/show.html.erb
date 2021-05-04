@@ -9,23 +9,27 @@
 
 <div class = "container-fluid">
   <h2> <%= @list.name %></h2>
+  <%= cl_image_tag @list.photo.key, height: 200, width: 500, crop: :fill, class: "img-fluid" %>
 </div>
 
 <div class="container">
 
 <%= link_to "Add a new bookmark", new_list_bookmark_path(@list), class: "btn btn-success text-end" %>
 
+
 <div class="list-group d-flex flex-row">
   <% @list.bookmarks.each do |bookmark| %>
     <div class = "card">
-      <%= image_tag "popcorn.png", alt: "popcorn photo", width: 50, height: 50 %>
+      <%= image_tag "#{bookmark.movie.poster_url}", alt: "popcorn photo", width: 150, height: 200 %>
       <div class = "card-body">
         <h4><%= bookmark.movie.title %> - <%= bookmark.movie.rating %> ⭐</h4>
         <p><%= bookmark.movie.overview %></p>
         <p>"<%= bookmark.comment %>""</p>
       </div>
+      <%= link_to 'Remove from list', bookmark_path(bookmark), method: :delete, data: {confirm: 'Are you sure?'} %>
     </div>
   <% end %>
 </div>
-
+<%= link_to 'update', edit_list_path(@list), class: "btn btn-info" %>
+<%= link_to 'delete list', list_path(@list), method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-danger" %>
 </div>

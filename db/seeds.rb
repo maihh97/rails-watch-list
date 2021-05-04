@@ -21,11 +21,11 @@ Movie.create(title: "Ocean's Eight", overview: "Debbie Ocean, a criminal masterm
 #   # Movie.create(title: result['original_title'], overview: result['overview'], poster_url: "https://image.tmdb.org/t/p/original#{result['poster_path']}", rating: result['vote_average'].to_f)
 # end
 
-5.times do
-  Movie.create(
-    title: Faker::Movie.title,
-    overview: Faker::Movie.quote,
-    poster_url: Faker::Internet.url,
-    rating: rand(1..10)
-  )
-end
+# 5.times do
+#   Movie.create(
+#     title: Faker::Movie.title,
+#     overview: Faker::Movie.quote,
+#     poster_url: Faker::Internet.url,
+#     rating: rand(1..10)
+#   )
+# end

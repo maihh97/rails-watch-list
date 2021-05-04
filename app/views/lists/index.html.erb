@@ -19,7 +19,7 @@
   <div class = "d-flex flex-row bd-highlight">
         <% @lists.each do |list| %>
           <div class = "card me-3">
-            <%= image_tag "card.jpg", alt: "movie card", width: 300, height: 200, class:"" %>
+            <%= cl_image_tag list.photo.key, height: 200, width: 300, crop: :fill %>
             <div class="card-img-overlay">
               <%= link_to list.name, list_path(list), id: "link" %>
             </div>
